@@ -5,17 +5,17 @@ import { Header } from "../components/Header";
 export function RootLayout() {
   return (
     <>
-      <Header></Header>
-      <main>
-        <p>
-          Esse e o Layout Principal.Abaixo esta o conteudo dinamico de cada rota
-        </p>
-        <hr />
-        <Outlet></Outlet>
-        <footer>
-          <p>Feito com react router DOM </p>
-        </footer>
-      </main>
+      <div className="app">
+        <Header></Header>
+        <main>
+          <h1>Loja de Produtos eletronicos</h1>
+          <hr />
+          <Outlet></Outlet>
+          <footer>
+            <p>Feito com react router DOM </p>
+          </footer>
+        </main>
+      </div>
     </>
   );
 }
