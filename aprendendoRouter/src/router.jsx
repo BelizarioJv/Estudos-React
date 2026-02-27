@@ -5,6 +5,8 @@ import { Products } from "./pages/Products";
 import { Cart } from "./pages/Carts";
 import { Product } from "./pages/Product";
 import { About } from "./pages/About";
+import { loadProduct } from "./loaders/products";
+import { ProductBoundary } from "./error-boundaries/ProductBoundary";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,8 @@ const router = createBrowserRouter([
       {
         path: "products/:productId",
         element: <Product />,
+        loader: loadProduct, // chamando a funçao criada em loaders , pasta onde e criada as funçoes para carregar os dados necessarios para a rota
+        errorElement: <ProductBoundary />, // pegandos as tratativas de erros criadas com o hook router
       },
       {
         path: "cart",
