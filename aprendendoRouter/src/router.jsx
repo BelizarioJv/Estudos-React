@@ -1,10 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import { RootLayout } from "./pages/RootLayout";
-import { Home } from "./pages/Home";
 import { AdminHome } from "./pages/admin/AdminHome";
 import { Products } from "./pages/Products";
 import { Cart } from "./pages/Carts";
 import { Product } from "./pages/Product";
+import { About } from "./pages/About";
 
 const router = createBrowserRouter([
   {
@@ -13,7 +13,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true, // indicando que e a rota inicial da aplicaçao
-        element: <Home />, // pagina inicial e a home
+        element: <AdminHome />, // pagina inicial e a home
       },
       {
         path: "products",
@@ -30,8 +30,8 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/admin",
-    element: <AdminHome />,
+    path: "/About",
+    element: <About />,
   },
 ]);
 
