@@ -6,6 +6,7 @@ export function Header() {
       <nav style={{ display: "flex", gap: "2rem" }}>
         <Link to="/products">Produtos</Link>
         <Link to="/cart">Carrinho</Link>
+        <Link to="/About">Sobre</Link>
       </nav>
     </header>
   );

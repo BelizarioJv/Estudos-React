@@ -1,0 +1,382 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #0078d7;
+  --primary-hover: #005a9e;
+  --danger: #d32f2f;
+  --background-dark: #242424;
+  --background-light: #ffffff;
+  --text-dark: rgba(255, 255, 255, 0.87);
+  --text-light: #213547;
+  --accent: #009879;
+
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--background-dark);
+  color: var(--text-dark);
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem;
+}
+
+.mainRender {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.linksRoutes {
+  padding: 2rem;
+  margin: 1rem;
+}
+
+.tabs {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  padding: 0.5rem;
+}
+
+a {
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+}
+a:hover {
+  color: var(--primary-hover);
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.8em 1em;
+  font-size: 1em;
+  font-weight: 600;
+  font-family: inherit;
+  background-color: var(--primary);
+  color: #f1f1f1;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    transform 0.2s ease;
+}
+button:hover {
+  background-color: var(--primary-hover);
+  transform: scale(1.02);
+}
+button:focus {
+  outline: 3px solid var(--primary-hover);
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.active {
+  border-bottom: 3px solid var(--danger);
+}
+/* ===========================
+   DASHBOARD
+   =========================== */
+
+main {
+  width: min(1200px, 95vw);
+  margin: 2rem auto 6rem auto;
+}
+
+main h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  font-weight: 800;
+}
+
+/* Cards superiores */
+
+.dashboard-card {
+  flex: 1;
+  min-width: 200px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 1.5rem;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.dashboard-card span {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-top: 0.5rem;
+  color: var(--accent);
+}
+
+.dashboard-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.allItems {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.styled-table thead tr {
+  background-color: var(--accent);
+  color: #ffffff;
+  text-align: left;
+}
+.styled-table th,
+.styled-table td {
+  padding: 12px 40px;
+}
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid var(--accent);
+}
+.styled-table tbody tr:hover {
+  background-color: #d1f0e0;
+  cursor: pointer;
+}
+
+.tdButton {
+  display: flex;
+  gap: 1rem;
+}
+
+form {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #2e2e2e;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.row {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.row > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--danger);
+}
+
+input,
+select,
+textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 6px rgba(0, 120, 215, 0.3);
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.form-control {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+/* ===========================
+   ShowItem (página do item)
+   =========================== */
+
+.item {
+  width: min(900px, 92vw);
+  margin: 2.5rem auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+}
+
+.item h2 {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+.actionsItem {
+  display: flex;
+  gap: 1rem;
+}
+
+.item .row {
+  margin: 1rem 0;
+  gap: 1rem;
+}
+
+.item .row > span,
+.item .row > p {
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.item p {
+  margin-top: 1rem;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* Botões/ações do ShowItem */
+.item .button,
+.item a.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition:
+    background 0.25s ease,
+    transform 0.15s ease;
+}
+
+.item .button:hover,
+.item a.button:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+/* Se o DeleteButton renderiza um <button>, isso deixa ele com cara de danger */
+.item button {
+  background: var(--danger);
+}
+.item button:hover {
+  filter: brightness(0.92);
+}
+
+/* Ajuste pro layout não ficar “espremido” no mobile */
+@media (max-width: 520px) {
+  .item {
+    padding: 1.25rem;
+  }
+  .item h2 {
+    font-size: 1.6rem;
+  }
+  .item .row > span,
+  .item .row > p {
+    width: 100%;
+  }
+}
+
+/* Light mode (mantendo seu padrão) */
+@media (prefers-color-scheme: light) {
+  .item {
+    background: #ffffff;
+    border: 1px solid #e7e7e7;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .item p {
+    color: #213547;
+  }
+
+  .item .row > span,
+  .item .row > p {
+    background: #f6f7f8;
+    border: 1px solid #e7e7e7;
+  }
+}
+
+/* Light mode refinado */
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: var(--background-light);
+    color: var(--text-light);
+  }
+  form {
+    background: #f9f9f9;
+  }
+  .styled-table tbody tr:nth-of-type(even) {
+    background-color: #fafafa;
+  }
+}
